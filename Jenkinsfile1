@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+
+    stages{
+        stage("dev"){
+            steps{
+                echo " stages, stage(stage name) and stage"
+            }
+        }
+        stage("preprod"){
+            steps{
+                echo "preprod"
+            }
+
+        }
+        stage("prod"){
+            steps{
+                echo "Prod steps"
+            }
+        }
+
+
+
+
+    }
+}
