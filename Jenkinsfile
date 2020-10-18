@@ -34,8 +34,7 @@ pipeline {
 
    when{
      expression {
-       BRANCH_NAME == "production"
-       params.VERSION: "1.1.0"
+       params.VERSION == "1.1.0"
      }
    }
 
