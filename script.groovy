@@ -2,7 +2,7 @@ def buildApp() {
     echo 'Groovy script building the app..'
 }
 
-def buildApp() {
+def deployApp() {
     echo "Groovy script deploying version ${params.VERSION}.."
 }
 
