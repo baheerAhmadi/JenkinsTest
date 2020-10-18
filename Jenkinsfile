@@ -45,12 +45,6 @@ pipeline {
 
  stage("deploy") {
 
-   when{
-     expression {
-       params.VERSION == "1.1.0"
-     }
-   }
-
        steps{
          script {
              gv.deployApp()
