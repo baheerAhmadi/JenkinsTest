@@ -14,22 +14,27 @@ pipeline {
 
  stage("test") {
    
-   }
-       steps{
+
+   steps{
           echo "test stage  "
             }
-}
+   }
+       
+
+
+
  stage("deploy") {
 
    when{
      expression {
        BRANCH_NAME == "production"
      }
+   }
 
        steps{
           echo "deploy stage Production branch "
             }
 }
+}
+}
 
-}
-}
