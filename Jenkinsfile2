@@ -4,7 +4,11 @@ def gv
 pipeline {
  agent any
 
- 
+ parameters {
+   choice(name: 'VERSION', choices: ['1.1.0', '1.2.3','1.2.1'], description:'default values')
+   booleanParam(name: 'executeTests', defaultValue: true,description: '')
+
+ }
    stages{
 
 
@@ -21,12 +25,13 @@ pipeline {
 
      stage("build") {
       
-    
+      when{
+        expression {
+          params.executesTest
+        }
+      }
        steps{
-           script{
-               gv.buildApp()
-           }
-        
+         echo " The bult version is ${NEW_VERSION}"
             }
 }
 
@@ -52,9 +57,7 @@ pipeline {
    }
 
        steps{
-         script {
-             gv.deployApp()
-         }
+          echo "deploy stage Production branch "
             }
 }
 }
